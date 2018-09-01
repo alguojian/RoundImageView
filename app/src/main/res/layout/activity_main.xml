@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.alguojian.view.RoundImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        app:aspectRatio="1.2"
+        app:imgType="round"
+        app:leftTopRadius="12dp"
+        app:leftBottomRadius="12dp"
+        app:rightTopRadius="12dp"
+        app:rightBottomRadius="12dp"
+        app:radius="12dp" />
+
+</android.support.constraint.ConstraintLayout>
