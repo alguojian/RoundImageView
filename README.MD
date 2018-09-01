@@ -1,5 +1,24 @@
 # 自定义imageview，支持圆角，指定某一个角圆角
 
+## 最新版本为
+[![](https://jitpack.io/v/ALguojian/RoundImageView.svg)](https://jitpack.io/#ALguojian/RoundImageView)
+
+Step 1. Add the JitPack repository to your build file
+```
+allprojects {
+          repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+```
+
+Step 2. Add the dependency
+```
+dependencies {
+        implementation 'com.github.ALguojian:RoundImageView:1.0.0'
+    }
+```
 
 
 ## xml使用如下，单独设置角度支持java代码
