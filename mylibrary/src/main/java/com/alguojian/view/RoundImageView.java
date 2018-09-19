@@ -58,7 +58,6 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
 
     public RoundImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs);
     }
 
@@ -71,7 +70,6 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RoundImageView);
 
-        //默认为圆形图片
         mType = a.getInt(R.styleable.RoundImageView_imgType, TYPE_CIRCLE);
         mRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_radius, RADIUS_INVALIDATE);
 
@@ -169,26 +167,32 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
         }
 
         Bitmap bmp = drawableToBitmap(drawable);
-        // 将bmp作为着色器，就是在指定区域内绘制bmp
         mBitmapShader = new BitmapShader(bmp, TileMode.CLAMP, TileMode.CLAMP);
-        float scale = 1.0f;
+
+        float scaleWidth = 1.0f;
+        float scaleHeight = 1.0f;
+        float widthroportion = getWidth() * 1.0f / bmp.getWidth();
+        float heightroportion = getHeight() * 1.0f / bmp.getHeight();
+
         if (mType == TYPE_CIRCLE) {
             // 拿到bitmap宽或高的小值
             int bSize = Math.max(bmp.getWidth(), bmp.getHeight());
-            scale = mWidth * 1.0f / bSize;
+            scaleWidth = mWidth * 1.0f / bSize;
+            scaleHeight = scaleWidth;
 
         } else if (mType == TYPE_ROUND) {
-            if (!(bmp.getWidth() == getWidth() && bmp.getHeight() == getHeight())) {
-                // 如果图片的宽或者高与view的宽高不匹配，计算出需要缩放的比例；缩放后的图片的宽高，一定要大于我们view的宽高；所以我们这里取大值；
-                scale = Math.max(getWidth() * 1.0f / bmp.getWidth(),
-                        getHeight() * 1.0f / bmp.getHeight());
+
+            //图片宽度大于控件宽度，或者图片高度大于图片高度
+            if (bmp.getWidth() != getWidth() || bmp.getHeight() != getHeight()) {
+                scaleHeight = scaleWidth = Math.max(widthroportion, heightroportion);
             }
         }
-        // shader的变换矩阵，我们这里主要用于放大或者缩小
-        mMatrix.setScale(scale, scale);
-        // 设置变换矩阵
+
+        mMatrix.setScale(scaleWidth, scaleHeight);
+
+        mMatrix.postTranslate(-(bmp.getWidth() * scaleWidth - getWidth()) / 2, 0);
+
         mBitmapShader.setLocalMatrix(mMatrix);
-        // 设置shader
         mBitmapPaint.setShader(mBitmapShader);
     }
 
@@ -212,69 +216,21 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
         return bitmap;
     }
 
-    /**
-     * 设置左边两个角圆形
-     * @param dp 角度
-     */
     public void setLeftRadius(int dp) {
-        this.mLeftTopRadius = dip2px(mContext, dp);
-        this.mLeftBottomRadius = dip2px(mContext, dp);
+        this.mLeftTopRadius = dp2px(dp);
+        this.mLeftBottomRadius = dp2px(dp);
         this.mRadius = mLeftTopRadius;
         invalidate();
     }
 
-    /**
-     * 设置左上角圆形
-     * @param dp 角度
-     */
-    public void setLeftTopRadius(int dp) {
-        this.mLeftTopRadius = dip2px(mContext, dp);
-        this.mRadius = mLeftTopRadius;
-        invalidate();
-    }
-
-    /**
-     * 设置左下角圆形
-     * @param dp 角度
-     */
-    public void setLeftBottomRadius(int dp) {
-        this.mLeftBottomRadius = dip2px(mContext, dp);
-        this.mRadius = mLeftTopRadius;
-        invalidate();
-    }
-
-    /**
-     * 设置右下角圆形
-     * @param dp 角度
-     */
-    public void setRightBottomRadius(int dp) {
-        this.mRightBottomRadius = dip2px(mContext, dp);
-        this.mRadius = mLeftTopRadius;
-        invalidate();
-    }
-
-    /**
-     * 设置右上角圆形
-     * @param dp 角度
-     */
-    public void setRightTopRadius(int dp) {
-        this.mRightTopRadius = dip2px(mContext, dp);
-        this.mRadius = mLeftTopRadius;
-        invalidate();
-    }
-
-
-    public int dip2px(Context context, float dpValue) {
-        if (context == null || context.getResources() == null || context.getResources().getDisplayMetrics() == null) {
-            return 0;
-        }
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
+    public int dp2px(int dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                dpVal, getResources().getDisplayMetrics());
     }
 
     public void setRightRadius(int dp) {
-        this.mRightTopRadius = dip2px(mContext, dp);
-        this.mRightBottomRadius = dip2px(mContext, dp);
+        this.mRightTopRadius = dp2px(dp);
+        this.mRightBottomRadius = dp2px(dp);
         this.mRadius = mRightTopRadius;
         invalidate();
     }
@@ -317,11 +273,6 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
             this.mRadius = pxVal;
             invalidate();
         }
-    }
-
-    public int dp2px(int dpVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, getResources().getDisplayMetrics());
     }
 
     public void setType(int type) {
