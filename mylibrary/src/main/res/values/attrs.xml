@@ -2,15 +2,16 @@
 <resources>
 
     <declare-styleable name="RoundImageView">
-        <attr name="radius" format="dimension"/>
-        <attr name="leftTopRadius" format="dimension"/>
-        <attr name="leftBottomRadius" format="dimension"/>
-        <attr name="rightTopRadius" format="dimension"/>
-        <attr name="rightBottomRadius" format="dimension"/>
-        <attr name="imgType">
+        <attr name="img_radius" format="dimension" />
+        <attr name="img_fitxy" format="boolean" />
+        <attr name="img_leftTopRadius" format="dimension" />
+        <attr name="img_leftBottomRadius" format="dimension" />
+        <attr name="img_rightTopRadius" format="dimension" />
+        <attr name="img_rightBottomRadius" format="dimension" />
+        <attr name="img_type">
             <flag name="circle" value="0"/>
             <flag name="round" value="1"/>
         </attr>
-        <attr name="aspectRatio" format="float"/>
+        <attr name="img_aspectRatio" format="float" />
     </declare-styleable>
 </resources>
