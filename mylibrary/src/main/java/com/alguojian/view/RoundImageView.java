@@ -83,7 +83,7 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
         mRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_radius, RADIUS_INVALIDATE);
 
         mLeftTopRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_leftTopRadius, 0);
-        scaleType = a.getInt(R.styleable.RoundImageView_img_scale_type, 0);
+        scaleType = a.getInt(R.styleable.RoundImageView_img_scale_type, 2);
         mLeftBottomRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_leftBottomRadius, 0);
         mRightTopRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_rightTopRadius, 0);
         mRightBottomRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_rightBottomRadius, 0);
