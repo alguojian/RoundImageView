@@ -16,7 +16,7 @@ allprojects {
 Step 2. Add the dependency
 ```
 dependencies {
-        implementation 'com.github.alguojian:RoundImageView:1.1.0'
+        implementation 'com.github.alguojian:RoundImageView:1.1.1'
     }
 ```
 
