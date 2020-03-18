@@ -3,7 +3,12 @@
 
     <declare-styleable name="RoundImageView">
         <attr name="img_radius" format="dimension" />
-        <attr name="img_fitxy" format="boolean" />
+        <attr name="img_scale_type">
+            <flag name="avatar" value="0" />
+            <flag name="fitXY" value="1" />
+            <flag name="centerCrop" value="2" />
+        </attr>
+        >
         <attr name="img_leftTopRadius" format="dimension" />
         <attr name="img_leftBottomRadius" format="dimension" />
         <attr name="img_rightTopRadius" format="dimension" />

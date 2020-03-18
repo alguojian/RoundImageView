@@ -47,7 +47,7 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
     private int mRightTopRadius;
     private int mRightBottomRadius;
     private float mAspectRatio;
-    private boolean fitxy = false;
+    private int scaleType = 0;
     private Context mContext;
 
     private int initWidth;
@@ -83,7 +83,7 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
         mRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_radius, RADIUS_INVALIDATE);
 
         mLeftTopRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_leftTopRadius, 0);
-        fitxy = a.getBoolean(R.styleable.RoundImageView_img_fitxy, false);
+        scaleType = a.getInt(R.styleable.RoundImageView_img_scale_type, 0);
         mLeftBottomRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_leftBottomRadius, 0);
         mRightTopRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_rightTopRadius, 0);
         mRightBottomRadius = a.getDimensionPixelSize(R.styleable.RoundImageView_img_rightBottomRadius, 0);
@@ -196,7 +196,7 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
         float heightroportion = getHeight() * 1.0f / bmp.getHeight();
 
         //设置图片全部加载，不进行裁剪
-        if (fitxy) {
+        if (scaleType == 1) {
             mMatrix.setScale(widthroportion, heightroportion);
         } else {
             if (mType == TYPE_CIRCLE) {
@@ -212,6 +212,9 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
             }
             mMatrix.setScale(scaleWidth, scaleHeight);
             mMatrix.postTranslate(-(bmp.getWidth() * scaleWidth - getWidth()) / 2, 0);
+            if (scaleType == 2) {
+                mMatrix.postTranslate(0, -(bmp.getHeight() * scaleHeight - getHeight()) / 2);
+            }
         }
         mBitmapShader.setLocalMatrix(mMatrix);
         mBitmapPaint.setShader(mBitmapShader);

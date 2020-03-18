@@ -31,7 +31,7 @@ dependencies {
         android:src="@mipmap/ic_launcher"
         app:img_aspectRatio="1.2"   //设置宽高比例
         app:img_type="round"     //设置圆角，默认圆形
-        app:img_fitxy="true"       //圆角图片显示中间部分
+        app:img_scale_type="centerCrop" //圆角图片显示中间部分
         app:img_leftTopRadius="12dp"
         app:img_leftBottomRadius="12dp"
         app:img_rightTopRadius="12dp"
@@ -39,3 +39,14 @@ dependencies {
         app:img_radius="12dp" />
 
 ```
+|img_type|作用|
+|---|---|
+|circle|默认值，显示圆形，一般用于显示头像等|
+|round|显示圆角，搭配角度使用|
+
+
+|img_scale_type|作用|
+|---|---|
+|avatar|显示图片中间靠上部分，一般用于显示头像等|
+|centerCrop|默认值，显示图片中间部分，已放大和缩小|
+|fitXY|全部显示图片，压缩或者放大|
