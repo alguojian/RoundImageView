@@ -31,7 +31,7 @@ dependencies {
         android:src="@mipmap/ic_launcher"
         app:img_aspectRatio="1.2"   //设置宽高比例
         app:img_type="round"     //设置圆角，默认圆形
-        app:img_scale_type="centerCrop" //圆角图片显示中间部分
+        app:img_scale_type="centerCrop" //圆角图片显示中间部分 ,默认显示中间部分
         app:img_leftTopRadius="12dp"
         app:img_leftBottomRadius="12dp"
         app:img_rightTopRadius="12dp"
@@ -50,3 +50,15 @@ dependencies {
 |avatar|显示图片中间靠上部分，一般用于显示头像等|
 |centerCrop|默认值，显示图片中间部分，已放大和缩小|
 |fitXY|全部显示图片，压缩或者放大|
+
+
+竖版视频专用封面，横版视频，宽度全屏，高度自适应，竖版视频，剧中裁剪
+```
+ <com.alguojian.view.VideoCoverImageView
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:background="#ff0000"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/bbb"
+            android:layout_marginBottom="40dp" />
+```

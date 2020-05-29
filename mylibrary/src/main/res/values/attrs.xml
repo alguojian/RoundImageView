@@ -8,7 +8,6 @@
             <flag name="fitXY" value="1" />
             <flag name="centerCrop" value="2" />
         </attr>
-        >
         <attr name="img_leftTopRadius" format="dimension" />
         <attr name="img_leftBottomRadius" format="dimension" />
         <attr name="img_rightTopRadius" format="dimension" />
