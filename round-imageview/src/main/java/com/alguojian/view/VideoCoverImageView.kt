@@ -46,7 +46,6 @@ class VideoCoverImageView @JvmOverloads constructor(context: Context, attrs: Att
             mRoundRect = RectF(0f, canvasTop, width.toFloat(), canvasTop + bitmapCanvasHeight)
             canvas.drawRect(mRoundRect!!, mBitmapPaint!!)
         }
-
     }
 
     /**
@@ -60,7 +59,7 @@ class VideoCoverImageView @JvmOverloads constructor(context: Context, attrs: Att
         bitmapCanvasHeight = height.toFloat()
         canvasTop = 0f
         mMatrix!!.setScale(scaleWidth, scaleWidth)
-        mMatrix!!.postTranslate(0f, -(bmp.height * scaleWidth - height) / 2)
+        mMatrix!!.postTranslate(-(bmp.width * scaleWidth - width) / 2, -(bmp.height * scaleWidth - height) / 2)
         mBitmapShader!!.setLocalMatrix(mMatrix)
         mBitmapPaint!!.shader = mBitmapShader
     }

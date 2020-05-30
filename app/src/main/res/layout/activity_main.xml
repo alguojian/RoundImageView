@@ -8,10 +8,10 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <com.alguojian.view.RoundImageView
             android:layout_width="200dp"
@@ -24,15 +24,30 @@
         <com.alguojian.view.VideoCoverImageView
             android:layout_width="300dp"
             android:layout_height="350dp"
-            android:background="#ff0000"
             android:layout_marginTop="40dp"
-            android:src="@mipmap/bbb"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginBottom="40dp"
+            android:background="#ff0000"
+            android:src="@mipmap/bbb" />
 
         <com.alguojian.view.VideoCoverImageView
+            android:layout_width="100dp"
+            android:layout_height="220dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="40dp"
+            android:src="@mipmap/aaa" />
+
+        <ImageView
             android:layout_width="300dp"
             android:layout_height="430dp"
+            android:layout_marginBottom="40dp"
+            android:src="@mipmap/aaa" />
+
+        <com.alguojian.view.RoundImageView
+            android:layout_width="100dp"
             android:src="@mipmap/aaa"
-            android:layout_marginBottom="40dp" />
+            app:img_type="round"
+            app:img_radius="4dp"
+            android:layout_height="220dp"/>
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -169,7 +169,7 @@ class RoundImageView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
             mMatrix!!.setScale(scaleWidth, scaleHeight)
             if (scaleType == 2) {
-                mMatrix!!.postTranslate(0f, -(bmp.height * scaleHeight - height) / 2)
+                mMatrix!!.postTranslate(-(bmp.width * scaleWidth - width) / 2, -(bmp.height * scaleHeight - height) / 2)
             }
         }
         mBitmapShader!!.setLocalMatrix(mMatrix)
