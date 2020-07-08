@@ -16,7 +16,7 @@ allprojects {
 Step 2. Add the dependency
 ```
 dependencies {
-        implementation 'com.github.alguojian:RoundImageView:1.1.1'
+        implementation 'com.github.alguojian:RoundImageView:1.2.1'
     }
 ```
 
@@ -55,10 +55,22 @@ dependencies {
 竖版视频专用封面，横版视频，宽度全屏，高度自适应，竖版视频，剧中裁剪
 ```
  <com.alguojian.view.VideoCoverImageView
-            android:layout_width="300dp"
-            android:layout_height="350dp"
-            android:background="#ff0000"
-            android:layout_marginTop="40dp"
-            android:src="@mipmap/bbb"
-            android:layout_marginBottom="40dp" />
+     android:layout_width="300dp"
+     android:layout_height="350dp"
+     android:background="#ff0000"
+     android:layout_marginTop="40dp"
+     android:src="@mipmap/bbb"
+     android:layout_marginBottom="40dp" />
+```
+
+支持设置灰色高度比例的图片，图片设置为灰色，并支持设置高度比例
+
+```
+ <com.alguojian.view.HeightColorImageView
+    android:layout_width="200dp"
+    android:layout_marginBottom="30dp"
+    android:layout_height="300dp"
+    android:id="@+id/heightColorImageView"
+    android:layout_marginTop="30dp"
+    android:src="@mipmap/aaa" />
 ```

@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:paddingBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
@@ -44,10 +45,27 @@
 
         <com.alguojian.view.RoundImageView
             android:layout_width="100dp"
+            android:layout_height="220dp"
             android:src="@mipmap/aaa"
-            app:img_type="round"
             app:img_radius="4dp"
-            android:layout_height="220dp"/>
+            app:img_type="round" />
+
+
+        <com.alguojian.view.HeightColorImageView
+            android:layout_width="200dp"
+            android:layout_marginBottom="30dp"
+            android:layout_height="300dp"
+            android:id="@+id/heightColorImageView"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/aaa" />
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:layout_width="match_parent"
+            android:id="@+id/seekBar"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
