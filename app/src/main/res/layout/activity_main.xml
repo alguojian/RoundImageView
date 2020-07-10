@@ -1,71 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:paddingBottom="30dp"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:fillViewport="true"
+        tools:context=".MainActivity">
 
-        <com.alguojian.view.RoundImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="40dp"
-            android:src="@mipmap/aaa"
-            app:img_type="circle" />
-
-
-        <com.alguojian.view.VideoCoverImageView
-            android:layout_width="300dp"
-            android:layout_height="350dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"
-            android:background="#ff0000"
-            android:src="@mipmap/bbb" />
-
-        <com.alguojian.view.VideoCoverImageView
-            android:layout_width="100dp"
-            android:layout_height="220dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="40dp"
-            android:src="@mipmap/aaa" />
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="430dp"
-            android:layout_marginBottom="40dp"
-            android:src="@mipmap/aaa" />
-
-        <com.alguojian.view.RoundImageView
-            android:layout_width="100dp"
-            android:layout_height="220dp"
-            android:src="@mipmap/aaa"
-            app:img_radius="4dp"
-            app:img_type="round" />
-
-
-        <com.alguojian.view.HeightColorImageView
-            android:layout_width="200dp"
-            android:layout_marginBottom="30dp"
-            android:layout_height="300dp"
-            android:id="@+id/heightColorImageView"
-            android:layout_marginTop="30dp"
-            android:src="@mipmap/aaa" />
-
-        <android.support.v7.widget.AppCompatSeekBar
+        <LinearLayout
+            android:paddingBottom="30dp"
             android:layout_width="match_parent"
-            android:id="@+id/seekBar"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+            <com.alguojian.view.RoundImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="40dp"
+                android:src="@mipmap/aaa"
+                app:img_type="circle" />
+
+
+            <com.alguojian.view.VideoCoverImageView
+                android:layout_width="300dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="#ff0000"
+                android:src="@mipmap/bbb" />
+
+            <com.alguojian.view.VideoCoverImageView
+                android:layout_width="100dp"
+                android:layout_height="220dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="40dp"
+                android:src="@mipmap/aaa" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="430dp"
+                android:layout_marginBottom="40dp"
+                android:src="@mipmap/aaa" />
+
+            <com.alguojian.view.RoundImageView
+                android:layout_width="100dp"
+                android:layout_height="220dp"
+                android:src="@mipmap/aaa"
+                app:img_radius="4dp"
+                app:img_type="round" />
+
+            <com.alguojian.view.HeightColorImageView
+                android:layout_width="200dp"
+                android:layout_marginBottom="30dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/aaa"
+                percentage="@{0.8f}"/>
+
+            <com.alguojian.view.HeightColorImageView
+                android:layout_width="200dp"
+                android:layout_marginBottom="30dp"
+                android:layout_height="300dp"
+                android:id="@+id/heightColorImageView"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/aaa" />
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:layout_width="match_parent"
+                android:id="@+id/seekBar"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

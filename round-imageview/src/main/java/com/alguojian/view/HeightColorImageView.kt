@@ -2,6 +2,7 @@ package com.alguojian.view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.databinding.BindingAdapter
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -51,13 +52,15 @@ class HeightColorImageView @JvmOverloads constructor(context: Context, attrs: At
 
         canvas.drawBitmap(createBitmap, 0f, 0f, mBitmapPaint)
 
-        val aa = (bmp.height * (1.0-percentage)).toInt()
+        val aa = (bmp.height * (1.0 - percentage)).toInt()
         val bb = (bmp.height * percentage).toInt()
 
-        if (bb!=0){
+        if (bb != 0) {
             val createBitmap2 = Bitmap.createBitmap(bmp, 0, aa, bmp.width, bb, mMatrix, false)
             canvas.drawBitmap(createBitmap2, 0f, height * (1.0f - percentage), paint)
+            createBitmap2.recycle()
         }
+        createBitmap.recycle()
     }
 
 
@@ -92,6 +95,15 @@ class HeightColorImageView @JvmOverloads constructor(context: Context, attrs: At
 
     init {
         init(context, attrs)
+    }
+
+    companion object {
+
+        @JvmStatic
+        @BindingAdapter(value = ["percentage"])
+        fun HeightColorImageView.setFloat(float: Float = 0.0f) {
+            this.percentage = float
+        }
     }
 }
 
