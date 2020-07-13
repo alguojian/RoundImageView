@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         seekBar.progress = 50
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                heightColorImageView.setProgress(progress / 100.toFloat())
+                heightColorImageView.setProgress(progress / 100.toDouble())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {

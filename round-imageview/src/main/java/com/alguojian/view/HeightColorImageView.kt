@@ -20,7 +20,7 @@ class HeightColorImageView @JvmOverloads constructor(context: Context, attrs: At
     private lateinit var mBitmapPaint: Paint
     private var mContext: Context? = null
     private lateinit var mMatrix: Matrix
-    private var percentage = 0.5f
+    private var percentage = 0.00
 
     private lateinit var paint: Paint
 
@@ -57,7 +57,7 @@ class HeightColorImageView @JvmOverloads constructor(context: Context, attrs: At
 
         if (bb != 0) {
             val createBitmap2 = Bitmap.createBitmap(bmp, 0, aa, bmp.width, bb, mMatrix, false)
-            canvas.drawBitmap(createBitmap2, 0f, height * (1.0f - percentage), paint)
+            canvas.drawBitmap(createBitmap2, 0f, height * (1.00 - percentage).toFloat(), paint)
             createBitmap2.recycle()
         }
         createBitmap.recycle()
@@ -87,7 +87,7 @@ class HeightColorImageView @JvmOverloads constructor(context: Context, attrs: At
     /**
      * 设置高度灰色的占比，百分比
      */
-    fun setProgress(percentage: Float) {
+    fun setProgress(percentage: Double) {
         this.percentage = percentage
         invalidate()
     }
@@ -101,7 +101,7 @@ class HeightColorImageView @JvmOverloads constructor(context: Context, attrs: At
 
         @JvmStatic
         @BindingAdapter(value = ["percentage"])
-        fun HeightColorImageView.setFloat(float: Float = 0.0f) {
+        fun HeightColorImageView.setFloat(float: Double = 0.00) {
             this.percentage = float
         }
     }

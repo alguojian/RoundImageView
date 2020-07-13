@@ -58,7 +58,7 @@
                 android:layout_height="300dp"
                 android:layout_marginTop="30dp"
                 android:src="@mipmap/aaa"
-                percentage="@{0.8f}"/>
+                percentage="@{0.83}"/>
 
             <com.alguojian.view.HeightColorImageView
                 android:layout_width="200dp"
